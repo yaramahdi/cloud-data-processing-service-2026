@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Dataproc UI</title></head>
+<body style="font-family: Arial; max-width: 720px; margin: 30px auto;">
+  <h2>Dataproc UI</h2>
+  <p>Bucket: <b>{{bucket}}</b> | Cluster: <b>{{cluster}}</b> | Region: <b>{{region}}</b></p>
+
+  <form method="POST" action="/run" enctype="multipart/form-data" style="border:1px solid #ddd; padding:16px;">
+    <h3>Choose job</h3>
+    <select name="job" style="width:100%; padding:8px;">
+      {% for key, job in jobs.items() %}
+        <option value="{{key}}" {% if key == default_job %}selected{% endif %}>{{job.label}}</option>
+      {% endfor %}
+    </select>
+
+    <h3 style="margin-top:18px;">Option A: Use existing file (gs://)</h3>
+    <input name="input_path" style="width:100%; padding:8px;" value="{{default_input}}" />
+
+    <h3 style="margin-top:18px;">Option B: Upload CSV (small)</h3>
+    <input type="file" name="file" />
+
+    <div style="margin-top:18px;">
+      <button type="submit" style="padding:10px 16px;">Run Job</button>
+    </div>
+  </form>
+</body>
+</html>

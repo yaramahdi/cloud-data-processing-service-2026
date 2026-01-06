@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Submitted</title></head>
+<body style="font-family: Arial; max-width: 720px; margin: 30px auto;">
+  <h2>Job Submitted</h2>
+  <p><b>Job:</b> {{job_name}}</p>
+  <p><b>Job ID:</b> {{job_id}}</p>
+  <p><b>Input:</b> {{input_path}}</p>
+  <p><b>Output dir:</b> {{output_dir}}</p>
+
+  <p>
+    <a href="{{job_url}}" target="_blank">Open Job in Dataproc</a><br/>
+    <a href="{{out_url}}" target="_blank">Open Output in Cloud Storage</a>
+  </p>
+
+  <p><a href="/">Back</a></p>
+</body>
+</html>
